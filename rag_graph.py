@@ -1,30 +1,29 @@
-import chromadb
+import numpy as np
+from embeddings import model  # reuse the same SentenceTransformer model
 
-
-client = chromadb.Client()
-
-collection = client.get_or_create_collection(
-    name="interview_docs"
-)
+# In-memory store
+_documents = []
+_embeddings = []
 
 
 def store_vectors(chunks):
-
-    ids = [f"id{i}" for i in range(len(chunks))]
-
-    collection.add(
-        documents=chunks,
-        ids=ids
-    )
+    """Encode chunks and store them in memory."""
+    global _documents, _embeddings
+    _documents = chunks
+    _embeddings = model.encode(chunks)  # shape: (n_chunks, embedding_dim)
 
 
-def retrieve_docs(query):
+def retrieve_docs(query, n_results=20):
+    """Return top-n_results chunks most similar to the query."""
+    if not _documents:
+        return []
 
-    results = collection.query(
-        query_texts=[query],
-        n_results=20
-    )
+    query_embedding = model.encode([query])[0]  # shape: (embedding_dim,)
 
-    docs = results["documents"][0]
+    # Cosine similarity
+    norms = np.linalg.norm(_embeddings, axis=1) * np.linalg.norm(query_embedding)
+    norms = np.where(norms == 0, 1e-10, norms)  # avoid division by zero
+    similarities = np.dot(_embeddings, query_embedding) / norms
 
-    return docs
+    top_indices = np.argsort(similarities)[::-1][:n_results]
+    return [_documents[i] for i in top_indices]

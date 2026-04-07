@@ -692,7 +692,7 @@ if qs and cq < len(qs):
         _fb = st.session_state.current_q_feedback
         _cls  = "sc-high" if _sc >= 8 else "sc-mid" if _sc >= 5 else "sc-low"
         _icon = "✓" if _sc >= 8 else "~" if _sc >= 5 else "✗"
-        _sh   = f'<div class="sc-badge {_cls}">{_icon} Score: {_sc} / 10</div>'""
+        _sh   = f'<div class="sc-badge {_cls}">{_icon} Score: {_sc} / 10</div>'
         st.markdown(f"""
         <div class="fb-card">
             <div class="fb-title">✅ Submitted — AI Feedback</div>
