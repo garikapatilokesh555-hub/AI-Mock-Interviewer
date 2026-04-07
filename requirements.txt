@@ -1,7 +1,7 @@
 streamlit
 langchain
 langgraph
-chromadb
+chromadb==0.4.24
 sentence-transformers
 groq
 pypdf
@@ -10,3 +10,4 @@ langchain-text-splitters
 tiktoken
 numpy
 pandas
+protobuf==3.20.3
