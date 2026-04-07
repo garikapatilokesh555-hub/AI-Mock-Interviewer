@@ -1,12 +1,9 @@
 streamlit
-langchain==0.1.16
-langgraph
 chromadb==0.4.24
 sentence-transformers
 groq
 pypdf
 python-docx
-langchain-text-splitters==0.0.1
 tiktoken
 numpy
 pandas
