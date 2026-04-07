@@ -1,4 +1,5 @@
 streamlit
+langchain
 langgraph
 chromadb
 sentence-transformers
@@ -6,3 +7,6 @@ groq
 pypdf
 python-docx
 langchain-text-splitters
+tiktoken
+numpy
+pandas

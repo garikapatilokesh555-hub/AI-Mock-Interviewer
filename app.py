@@ -53,7 +53,6 @@ html, body, [class*="css"] {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: var(--bg);
     color: var(--text);
-    font-size: 16px;
 }
 #MainMenu, footer, header { visibility: hidden; }
 .block-container { padding: 2rem 2.5rem 5rem; max-width: 880px; margin: auto; }
@@ -65,12 +64,30 @@ html, body, [class*="css"] {
 [data-testid="stSidebar"] {
     background: var(--white) !important;
     border-right: 1px solid var(--border) !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+[data-testid="stSidebar"][aria-expanded="false"] {
+    min-width: 260px !important;
+    max-width: 260px !important;
+    transform: none !important;
+    visibility: visible !important;
+    display: block !important;
+}
+/* Hide the collapse arrow button */
+[data-testid="collapsedControl"] {
+    display: none !important;
+}
+button[kind="header"] {
+    display: none !important;
 }
 [data-testid="stSidebar"] .block-container { padding: 1.6rem 1.1rem; }
 
 .sb-logo {
     font-family: 'Lora', serif;
-    font-size: 1.5rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--accent);
     padding-bottom: 1.2rem;
@@ -79,7 +96,7 @@ html, body, [class*="css"] {
 }
 
 .sb-label {
-    font-size: 0.92rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -91,22 +108,22 @@ html, body, [class*="css"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.85rem 1rem;
+    padding: 0.65rem 0.85rem;
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--r-sm);
     margin-bottom: 0.45rem;
 }
-.stat-row .sl { font-size: 1.05rem; color: var(--text-2); }
-.stat-row .sv { font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 700; color: var(--text); }
+.stat-row .sl { font-size: 0.8rem; color: var(--text-2); }
+.stat-row .sv { font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; color: var(--text); }
 .sv.blue  { color: var(--accent);  }
 .sv.green { color: var(--success); }
 
 .diff-pill {
     display: inline-block;
-    padding: 0.35rem 1rem;
+    padding: 0.25rem 0.7rem;
     border-radius: 99px;
-    font-size: 0.96rem;
+    font-size: 0.74rem;
     font-weight: 600;
     margin-top: 0.45rem;
 }
@@ -118,9 +135,9 @@ html, body, [class*="css"] {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
-    padding: 0.6rem 0;
+    padding: 0.5rem 0;
     border-bottom: 1px solid var(--border);
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 .hist-row .hq { color: var(--text-2); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .hist-row .hs { font-weight: 700; flex-shrink: 0; }
@@ -137,15 +154,15 @@ html, body, [class*="css"] {
     gap: 1.1rem;
     box-shadow: var(--shadow-sm);
 }
-.ph-icon  { font-size: 2.4rem; flex-shrink: 0; }
+.ph-icon  { font-size: 2.2rem; flex-shrink: 0; }
 .ph-title {
     font-family: 'Lora', serif;
-    font-size: 1.75rem;
+    font-size: 1.55rem;
     font-weight: 700;
     color: var(--text);
-    margin: 0 0 0.2rem;
+    margin: 0 0 0.15rem;
 }
-.ph-sub   { font-size: 1rem; color: var(--muted); margin: 0; }
+.ph-sub   { font-size: 0.86rem; color: var(--muted); margin: 0; }
 
 /* ────── UPLOAD ZONE ────── */
 .upload-box {
@@ -158,35 +175,35 @@ html, body, [class*="css"] {
     transition: border-color 0.2s;
 }
 .upload-box:hover { border-color: var(--accent); }
-.upload-box .ub-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.upload-box .ub-icon { font-size: 2rem; margin-bottom: 0.5rem; }
 .upload-box h3 {
     font-family: 'Lora', serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text);
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.25rem;
 }
-.upload-box p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+.upload-box p { font-size: 0.81rem; color: var(--muted); margin: 0; }
 
 /* ────── PROGRESS ────── */
 .prog-wrap {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--r-sm);
-    padding: 1rem 1.3rem;
+    padding: 0.95rem 1.2rem;
     margin-bottom: 1.4rem;
     box-shadow: var(--shadow-sm);
 }
 .prog-meta {
     display: flex;
     justify-content: space-between;
-    font-size: 0.88rem;
+    font-size: 0.76rem;
     font-weight: 600;
     color: var(--muted);
     margin-bottom: 0.55rem;
 }
 .prog-track {
-    height: 6px;
+    height: 5px;
     background: var(--border);
     border-radius: 99px;
     overflow: hidden;
@@ -204,7 +221,7 @@ html, body, [class*="css"] {
     border: 1px solid var(--border);
     border-left: 4px solid var(--accent);
     border-radius: var(--r);
-    padding: 1.6rem 1.8rem;
+    padding: 1.5rem 1.7rem;
     margin-bottom: 1.3rem;
     box-shadow: var(--shadow-sm);
 }
@@ -212,40 +229,40 @@ html, body, [class*="css"] {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.82rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
 }
 .tag {
     background: var(--accent-lt);
     color: var(--accent);
     border-radius: 99px;
-    font-size: 0.76rem;
+    font-size: 0.66rem;
     font-weight: 700;
     letter-spacing: 0.06em;
-    padding: 0.2rem 0.6rem;
+    padding: 0.15rem 0.5rem;
     text-transform: uppercase;
 }
 .q-text {
     font-family: 'Lora', serif;
-    font-size: 1.2rem;
+    font-size: 1.06rem;
     font-weight: 600;
     color: var(--text);
-    line-height: 1.65;
+    line-height: 1.6;
     margin: 0;
 }
 
 /* ────── ANSWER LABEL ────── */
 .ans-label {
-    font-size: 0.82rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
-    margin: 1.1rem 0 0.4rem;
+    margin: 1.1rem 0 0.35rem;
 }
 
 /* ────── FEEDBACK CARD ────── */
@@ -253,20 +270,20 @@ html, body, [class*="css"] {
     background: #f0f4ff;
     border: 1px solid #c7d5fc;
     border-radius: var(--r);
-    padding: 1.4rem 1.6rem;
+    padding: 1.3rem 1.5rem;
     margin-top: 1.1rem;
 }
 .fb-title {
-    font-size: 0.82rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 0.65rem;
+    margin: 0 0 0.6rem;
 }
 .fb-body {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: 0.88rem;
+    line-height: 1.7;
     color: var(--text-2);
     margin: 0;
 }
@@ -276,11 +293,11 @@ html, body, [class*="css"] {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    padding: 0.38rem 1rem;
+    padding: 0.32rem 0.85rem;
     border-radius: 99px;
-    font-size: 0.92rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    margin-top: 0.9rem;
+    margin-top: 0.8rem;
 }
 .sc-high { background: var(--success-lt); color: var(--success); }
 .sc-mid  { background: var(--warning-lt); color: var(--warning); }
@@ -296,16 +313,16 @@ html, body, [class*="css"] {
     box-shadow: var(--shadow);
     text-align: center;
 }
-.rw-icon  { font-size: 3rem; margin-bottom: 0.4rem; }
+.rw-icon  { font-size: 2.8rem; margin-bottom: 0.4rem; }
 .rw-score {
     font-family: 'Lora', serif;
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     font-weight: 700;
     color: var(--accent);
     line-height: 1;
     margin: 0.2rem 0;
 }
-.rw-sub { font-size: 0.97rem; color: var(--muted); margin-bottom: 1.5rem; }
+.rw-sub { font-size: 0.84rem; color: var(--muted); margin-bottom: 1.5rem; }
 
 .metric-grid {
     display: grid;
@@ -317,22 +334,22 @@ html, body, [class*="css"] {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--r-sm);
-    padding: 1rem 0.8rem;
+    padding: 0.9rem 0.7rem;
 }
 .mb-val {
     font-family: 'Lora', serif;
-    font-size: 1.75rem;
+    font-size: 1.55rem;
     font-weight: 700;
     color: var(--text);
 }
-.mb-lbl { font-size: 0.82rem; color: var(--muted); margin-top: 0.15rem; }
+.mb-lbl { font-size: 0.7rem; color: var(--muted); margin-top: 0.12rem; }
 
 .verdict-box {
     border-radius: var(--r-sm);
-    padding: 1rem 1.2rem;
-    font-size: 1rem;
+    padding: 0.85rem 1.1rem;
+    font-size: 0.87rem;
     font-weight: 500;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 .vd-ex { background: var(--success-lt); color: var(--success); }
 .vd-go { background: var(--warning-lt); color: var(--warning); }
@@ -345,9 +362,9 @@ html, body, [class*="css"] {
     border: none !important;
     border-radius: var(--r-sm) !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 1rem !important;
+    font-size: 0.87rem !important;
     font-weight: 600 !important;
-    padding: 0.6rem 1.5rem !important;
+    padding: 0.52rem 1.3rem !important;
     box-shadow: 0 2px 8px rgba(59,108,247,0.22) !important;
     transition: opacity 0.15s, transform 0.1s !important;
 }
@@ -370,8 +387,8 @@ textarea, [data-testid="stTextArea"] textarea {
     color: var(--text) !important;
     border-radius: var(--r-sm) !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 1rem !important;
-    min-height: 120px !important;
+    font-size: 0.87rem !important;
+    min-height: 115px !important;
 }
 textarea:focus {
     border-color: var(--accent) !important;
@@ -382,11 +399,11 @@ textarea:focus {
     border: 1px solid var(--border) !important;
     color: var(--text) !important;
     border-radius: var(--r-sm) !important;
-    font-size: 1rem !important;
+    font-size: 0.87rem !important;
 }
 [data-testid="stAlert"] {
     border-radius: var(--r-sm) !important;
-    font-size: 0.97rem !important;
+    font-size: 0.85rem !important;
 }
 hr { border-color: var(--border) !important; margin: 1.4rem 0 !important; }
 </style>
@@ -403,6 +420,12 @@ for k, v in {
     "answered": False,
     "scores": [],
     "feedback_history": [],
+    "history_log": [],
+    "current_q_score": None,
+    "current_q_feedback": None,
+    "evaluated": False,
+    "eval_preview_score": None,
+    "eval_preview_feedback": None,
 }.items():
     if k not in st.session_state:
         st.session_state[k] = v
@@ -434,10 +457,11 @@ with st.sidebar:
     st.markdown('<div class="sb-label">Session Stats</div>', unsafe_allow_html=True)
 
     total_q    = len(st.session_state.questions)
-    answered_n = st.session_state.current_q
+    answered_n = len(st.session_state.history_log)
+    logged_scores = [e["score"] for e in st.session_state.history_log]
     avg_sc     = (
-        round(sum(st.session_state.scores) / len(st.session_state.scores), 1)
-        if st.session_state.scores else "—"
+        round(sum(logged_scores) / len(logged_scores), 1)
+        if logged_scores else "—"
     )
 
     st.markdown(f"""
@@ -455,22 +479,19 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-    if st.session_state.scores:
+    if st.session_state.history_log:
         st.markdown('<div class="sb-label">Score History</div>', unsafe_allow_html=True)
-        for i, (q, sc) in enumerate(zip(
-            st.session_state.questions[:len(st.session_state.scores)],
-            st.session_state.scores
-        )):
+        for i, entry in enumerate(st.session_state.history_log):
             color = (
-                "var(--success)" if sc >= 8
-                else "var(--warning)" if sc >= 5
+                "var(--success)" if entry["score"] >= 8
+                else "var(--warning)" if entry["score"] >= 5
                 else "var(--danger)"
             )
-            short_q = q[:40] + "…" if len(q) > 40 else q
+            short_q = entry["question"][:35] + "…" if len(entry["question"]) > 35 else entry["question"]
             st.markdown(f"""
             <div class="hist-row">
                 <span class="hq">Q{i+1}. {short_q}</span>
-                <span class="hs" style="color:{color}">{sc}/10</span>
+                <span class="hs" style="color:{color}">{entry["score"]}/10</span>
             </div>""", unsafe_allow_html=True)
 
 
@@ -533,11 +554,17 @@ if len(st.session_state.questions) == 0:
             questions = list(set(questions))
             random.shuffle(questions)
 
-            st.session_state.questions        = questions
-            st.session_state.current_q        = 0
-            st.session_state.answered         = False
-            st.session_state.scores           = []
-            st.session_state.feedback_history = []
+            st.session_state.questions           = questions
+            st.session_state.current_q           = 0
+            st.session_state.answered            = False
+            st.session_state.scores              = []
+            st.session_state.feedback_history    = []
+            st.session_state.history_log         = []
+            st.session_state.current_q_score       = None
+            st.session_state.current_q_feedback    = None
+            st.session_state.evaluated             = False
+            st.session_state.eval_preview_score    = None
+            st.session_state.eval_preview_feedback = None
 
         st.success("Documents processed — your interview is ready!")
         st.rerun()
@@ -593,44 +620,98 @@ if qs and cq < len(qs):
         label_visibility="collapsed"
     )
 
-    col_sub, col_next, _ = st.columns([1, 1, 4])
-    with col_sub:
-        submit = st.button("Submit", use_container_width=True)
-    with col_next:
-        if st.button("Next →", disabled=not st.session_state.answered, use_container_width=True):
-            st.session_state.current_q += 1
-            st.session_state.answered   = False
-            st.rerun()
+    is_last_question = (cq == len(qs) - 1)
+    next_label       = "Finish ✓" if is_last_question else "Next →"
 
-    if submit:
-        if not answer.strip():
-            st.warning("Please write an answer before submitting.")
+    # ════════════════════════════════════════════
+    # STAGE 1 — EVALUATE  (no evaluation yet)
+    # ════════════════════════════════════════════
+    if not st.session_state.answered and not st.session_state.evaluated:
+        col_ev, _ = st.columns([1, 5])
+        with col_ev:
+            if st.button("🔍 Evaluate", use_container_width=True):
+                if not answer.strip():
+                    st.warning("Please write an answer before evaluating.")
+                else:
+                    with st.spinner("Evaluating your answer…"):
+                        _fb = evaluate_answer(answer)
+                    _sm = re.search(r"(?i)score[\s:*]*\(?(\d+)\)?", _fb)
+                    st.session_state.eval_preview_score    = int(_sm.group(1)) if _sm else None
+                    st.session_state.eval_preview_feedback = _fb
+                    st.session_state.evaluated             = True
+                    st.rerun()
+
+    # ════════════════════════════════════════════
+    # STAGE 2 — PREVIEW  (evaluated, not submitted)
+    # ════════════════════════════════════════════
+    elif st.session_state.evaluated and not st.session_state.answered:
+        _sc = st.session_state.eval_preview_score
+        _fb = st.session_state.eval_preview_feedback
+        if _sc is not None:
+            _cls  = "sc-high" if _sc >= 8 else "sc-mid" if _sc >= 5 else "sc-low"
+            _icon = "✓" if _sc >= 8 else "~" if _sc >= 5 else "✗"
+            _sh   = f'<div class="sc-badge {_cls}">{_icon} Score: {_sc} / 10</div>'
         else:
-            with st.spinner("Evaluating your answer…"):
-                feedback = evaluate_answer(answer)
+            _sh = ""
+        st.markdown(f"""
+        <div class="fb-card">
+            <div class="fb-title">📋 Evaluation Preview — Review before submitting</div>
+            <p class="fb-body">{_fb}</p>
+            {_sh}
+        </div>""", unsafe_allow_html=True)
 
-            score_match = re.search(r"Score:\s*(\d+)", feedback)
-            score       = int(score_match.group(1)) if score_match else None
+        col_sub, col_next, _ = st.columns([1, 1, 4])
+        with col_sub:
+            if st.button("✅ Submit", use_container_width=True):
+                _sc = st.session_state.eval_preview_score
+                _fb = st.session_state.eval_preview_feedback
+                # Use 0 as fallback score if evaluation failed to parse
+                _final_score = _sc if _sc is not None else 0
+                st.session_state.current_q_score    = _final_score
+                st.session_state.current_q_feedback = _fb
+                st.session_state.scores.append(_final_score)
+                st.session_state.feedback_history.append(_fb)
+                # ✅ Always log to history on Submit (score 0 if unparseable)
+                if not any(e["q_index"] == cq for e in st.session_state.history_log):
+                    st.session_state.history_log.append({
+                        "q_index":  cq,
+                        "question": qs[cq],
+                        "score":    _final_score,
+                    })
+                st.session_state.answered  = True
+                st.session_state.evaluated = False
+                st.rerun()
+        with col_next:
+            st.button(next_label, disabled=True, use_container_width=True)
 
-            if score is not None:
-                st.session_state.scores.append(score)
-                sc_cls  = "sc-high" if score >= 8 else "sc-mid" if score >= 5 else "sc-low"
-                sc_icon = "✓" if score >= 8 else "~" if score >= 5 else "✗"
-                score_html = f'<div class="sc-badge {sc_cls}">{sc_icon} Score: {score} / 10</div>'
-            else:
-                score_html = ""
+    # ════════════════════════════════════════════
+    # STAGE 3 — SUBMITTED  (answered = True)
+    # ════════════════════════════════════════════
+    elif st.session_state.answered:
+        _sc = st.session_state.current_q_score if st.session_state.current_q_score is not None else 0
+        _fb = st.session_state.current_q_feedback
+        _cls  = "sc-high" if _sc >= 8 else "sc-mid" if _sc >= 5 else "sc-low"
+        _icon = "✓" if _sc >= 8 else "~" if _sc >= 5 else "✗"
+        _sh   = f'<div class="sc-badge {_cls}">{_icon} Score: {_sc} / 10</div>'""
+        st.markdown(f"""
+        <div class="fb-card">
+            <div class="fb-title">✅ Submitted — AI Feedback</div>
+            <p class="fb-body">{_fb}</p>
+            {_sh}
+        </div>""", unsafe_allow_html=True)
 
-            st.session_state.feedback_history.append(feedback)
-
-            st.markdown(f"""
-            <div class="fb-card">
-                <div class="fb-title">AI Feedback</div>
-                <p class="fb-body">{feedback}</p>
-                {score_html}
-            </div>
-            """, unsafe_allow_html=True)
-
-            st.session_state.answered = True
+        col_nxt, _ = st.columns([1, 5])
+        with col_nxt:
+            if st.button(f"{'🏁' if is_last_question else '➡️'} {next_label}", use_container_width=True):
+                # Reset all flags for next question
+                st.session_state.current_q             += 1
+                st.session_state.answered               = False
+                st.session_state.evaluated              = False
+                st.session_state.current_q_score        = None
+                st.session_state.current_q_feedback     = None
+                st.session_state.eval_preview_score     = None
+                st.session_state.eval_preview_feedback  = None
+                st.rerun()
 
 
 # ─────────────────────────────────────────
@@ -638,12 +719,14 @@ if qs and cq < len(qs):
 # ─────────────────────────────────────────
 
 if qs and cq >= len(qs):
-    scores = st.session_state.scores
+    # Use only history_log entries as source of truth (only submitted+nexted questions)
+    total_done    = len(st.session_state.history_log)
+    logged_scores = [e["score"] for e in st.session_state.history_log]
 
-    if scores:
-        avg  = sum(scores) / len(scores)
-        high = max(scores)
-        low  = min(scores)
+    if logged_scores:
+        avg  = sum(logged_scores) / len(logged_scores)
+        high = max(logged_scores)
+        low  = min(logged_scores)
 
         if avg >= 8:
             icon, vd_cls = "🏆", "vd-ex"
@@ -659,10 +742,10 @@ if qs and cq >= len(qs):
         <div class="report-wrap">
             <div class="rw-icon">{icon}</div>
             <div class="rw-score">{round(avg, 1)} / 10</div>
-            <div class="rw-sub">Average score across {len(scores)} question{"s" if len(scores) != 1 else ""}</div>
+            <div class="rw-sub">Average score across {total_done} question{"s" if total_done != 1 else ""}</div>
             <div class="metric-grid">
                 <div class="metric-box">
-                    <div class="mb-val">{len(scores)}</div>
+                    <div class="mb-val">{total_done}</div>
                     <div class="mb-lbl">Answered</div>
                 </div>
                 <div class="metric-box">
@@ -691,7 +774,9 @@ if qs:
     if st.button("↺ Restart Interview"):
         for k, v in {
             "questions": [], "current_q": 0,
-            "answered": False, "scores": [], "feedback_history": []
+            "answered": False, "scores": [], "feedback_history": [],
+            "history_log": [], "current_q_score": None, "current_q_feedback": None,
+            "evaluated": False, "eval_preview_score": None, "eval_preview_feedback": None
         }.items():
             st.session_state[k] = v
         st.rerun()
